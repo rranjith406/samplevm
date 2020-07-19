@@ -10,8 +10,3 @@ resource "aws_instance" "this" {
   associate_public_ip_address = "true"
   subnet_id ="subnet-8fa19fe7"
   }
-resource "null_resource" "web" {
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.this.private_ip} >> /home/ec2-user/private_ips.txt"
-  }
-}
