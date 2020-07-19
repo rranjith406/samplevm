@@ -15,9 +15,13 @@ metadata:
   namespace: kube-system
 CONFIGMAPAWSAUTH
   }
+output "auth"{
+  value= local.config_map_aws_auth
+  }
+
 resource "null_resource" "web" {
   provisioner "local-exec" {
     //command = "echo ${aws_instance.this.private_ip} >> /home/ec2-user/private_ips.txt"
-    command ="echo ${local.config_map_aws_auth} >> /home/ec2-user/private_ips.txt"
+    command ="sudo terraform output auth >> /home/ec2-user/private_ips.txt"
   }
 }
