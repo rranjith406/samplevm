@@ -8,4 +8,5 @@ resource "aws_instance" "this" {
   ami              = "ami-0732b62d310b80e97"
   instance_type    = "t2.micro"
   associate_public_ip_address = "true"
+  subnet_id ="subnet-8fa19fe7"
   }
